@@ -529,7 +529,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1285100906}
 --- !u!33 &388344567
@@ -1771,6 +1771,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   Player: {fileID: 1486856443}
   TeleportOffset: {x: 0, y: 0, z: 20}
+  teleportBlockerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &1597946700
 GameObject:
   m_ObjectHideFlags: 0
