@@ -56,7 +56,7 @@ public class TimeTravel : MonoBehaviour {
 
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.F)) {
             Vector3 newPos = Player.transform.position + (isOffset ? -TeleportOffset : TeleportOffset);
 
             if (CanTeleport(newPos) && teleportAllowed) {
