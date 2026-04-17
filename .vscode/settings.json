@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "GameProject.slnx"
+    "dotnet.defaultSolution": "Game Proto assignment.slnx"
 }
