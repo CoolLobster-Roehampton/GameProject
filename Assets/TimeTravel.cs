@@ -4,7 +4,9 @@ public class TimeTravel : MonoBehaviour {
     public GameObject Player;
     public Vector3 TeleportOffset;
     public LayerMask teleportBlockerMask;
+    
     bool isOffset = false;
+    bool teleportAllowed = false;
 
     CharacterController capsule;
     float capsuleHeight, capsuleRadius;
@@ -15,6 +17,10 @@ public class TimeTravel : MonoBehaviour {
         capsuleHeight = capsule.height * Player.transform.lossyScale.y;
         capsuleRadius = capsule.radius * Mathf.Max(Player.transform.lossyScale.x, Player.transform.lossyScale.z);
         capsuleCenter = capsule.center;
+    }
+
+    public void SetTeleportAllowed(bool state) {
+        teleportAllowed = state;
     }
 
     bool CanTeleport(Vector3 targetPosition) {
@@ -36,7 +42,7 @@ public class TimeTravel : MonoBehaviour {
             top,
             capsuleRadius,
             teleportBlockerMask,
-            QueryTriggerInteraction.Ignore
+            QueryTriggerInteraction.Collide//.Ignore
         );
 
         foreach (var hit in hits)
@@ -53,7 +59,7 @@ public class TimeTravel : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E)) {
             Vector3 newPos = Player.transform.position + (isOffset ? -TeleportOffset : TeleportOffset);
 
-            if (CanTeleport(newPos)) {
+            if (CanTeleport(newPos) && teleportAllowed) {
                 capsule.enabled = false;
                 Player.transform.position = newPos;
                 capsule.enabled = true;
