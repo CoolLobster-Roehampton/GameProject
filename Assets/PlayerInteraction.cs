@@ -70,6 +70,13 @@ public class PlayerInteraction : MonoBehaviour
             locked.TryUnlock(this);
             return;
         }
+
+        Door door = hit.collider.GetComponent<Door>() ?? hit.collider.GetComponentInParent<Door>();
+        if (door != null)
+        {
+            door.Toggle();
+            return;
+        }
     }
 
     // ===== Inventory API (used by KeyPickup / LockedTarget) =====
