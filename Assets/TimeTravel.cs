@@ -19,55 +19,15 @@ public class TimeTravel : MonoBehaviour {
         capsuleCenter = capsule.center;
     }
 
-    public void SetTeleportAllowed(bool state) {
-        teleportAllowed = state;
-    }
-
-    bool CanTeleport(Vector3 targetPosition) {
-        Vector3 worldCenter =
-            targetPosition +
-            Player.transform.rotation *
-            Vector3.Scale(capsule.center, Player.transform.lossyScale);
-
-        float halfHeight = Mathf.Max(
-            capsuleHeight / 2f - capsuleRadius,
-            0.01f
-        );
-
-        Vector3 bottom = worldCenter + Vector3.down * halfHeight;
-        Vector3 top    = worldCenter + Vector3.up   * halfHeight;
-
-        Collider[] hits = Physics.OverlapCapsule(
-            bottom,
-            top,
-            capsuleRadius,
-            teleportBlockerMask,
-            QueryTriggerInteraction.Collide//.Ignore
-        );
-
-        foreach (var hit in hits)
-        {
-            if (hit == capsule) continue; // ignore self
-            return false;
-        }
-
-        return true;
-    }
-
-
     void Update() {
-        if (Input.GetKeyDown(KeyCode.F)) {
-            Vector3 newPos = Player.transform.position + (isOffset ? -TeleportOffset : TeleportOffset);
+        if (Input.GetKeyDown(KeyCode.E)) {
+            //Vector3 newPos = Player.transform.position + isOffset ? -TeleportOffset : TeleportOffset;
 
-            if (CanTeleport(newPos) && teleportAllowed) {
-                capsule.enabled = false;
-                Player.transform.position = newPos;
-                capsule.enabled = true;
-
-                isOffset = !isOffset;
-            }
-
-
+            cc.enabled = false;
+            //Player.transform.position = newPos;
+            cc.enabled = true;
+            
+            isOffset = !isOffset;
         }
     }
 }
