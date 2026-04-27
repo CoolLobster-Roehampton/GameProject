@@ -15870,6 +15870,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 003f91c8f9aa7d84fa7a00b552f9144a, type: 3}
+--- !u!4 &2057138781 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400578, guid: 18cd780e6948a554a850b2d047ebf8fb, type: 3}
+  m_PrefabInstance: {fileID: 812929607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2057138784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15882,7 +15887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b126e85187674b428d9abe45995043c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDoor
-  hinge: {fileID: 1342841240}
+  hinge: {fileID: 2057138781}
   openEuler: {x: 0, y: 90, z: 0}
   degreesPerSecond: 180
   startsOpen: 0
