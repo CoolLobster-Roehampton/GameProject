@@ -8446,6 +8446,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e20fca3c99e79e478de1650318e27f1, type: 3}
+--- !u!4 &598662234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400646, guid: 18cd780e6948a554a850b2d047ebf8fb, type: 3}
+  m_PrefabInstance: {fileID: 812929607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &601287426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8894,7 +8899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b126e85187674b428d9abe45995043c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDoor
-  hinge: {fileID: 2091386760}
+  hinge: {fileID: 598662234}
   openEuler: {x: 0, y: -90, z: 0}
   degreesPerSecond: 180
   startsOpen: 0
@@ -15215,6 +15220,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300282, guid: 18cd780e6948a554a850b2d047ebf8fb, type: 3}
+--- !u!4 &1899479563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400642, guid: 18cd780e6948a554a850b2d047ebf8fb, type: 3}
+  m_PrefabInstance: {fileID: 812929607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1899479566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15227,7 +15237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b126e85187674b428d9abe45995043c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDoor
-  hinge: {fileID: 861224676}
+  hinge: {fileID: 1899479563}
   openEuler: {x: 0, y: 90, z: 0}
   degreesPerSecond: 180
   startsOpen: 0
