@@ -50,6 +50,7 @@ public class MenuManager : MonoBehaviour
 
     public void ShowFinishMenu()
     {
+        ShowDialouge("You've found the piece, remember the past.");
         uiCanvas.SetActive(false);
         finishMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -62,6 +63,7 @@ public class MenuManager : MonoBehaviour
         mainMenu.SetActive(false);
         Time.timeScale = 1f;
         SetCursorState(true);
+        ShowDialouge("Find the memories, travel in time.");
     }
 
     public void QuitGame()

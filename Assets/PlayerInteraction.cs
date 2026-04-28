@@ -87,7 +87,6 @@ public class PlayerInteraction : MonoBehaviour
                 if (!timeTravel.Teleport()) { teleportFail = true; }    
             } else
             {
-                //menuManager.ShowFinaleDialouge();
                 menuManager.ShowFinishMenu();
             }
             return;

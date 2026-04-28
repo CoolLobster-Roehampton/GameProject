@@ -9108,7 +9108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &592594214
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10172,7 +10172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &772569264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46701,7 +46701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyPickup
   itemId: key_3
   displayName: Key 3
-  finale: 0
+  finale: 1
   disableOnPickup: 1
 --- !u!1 &1945829962
 GameObject:
