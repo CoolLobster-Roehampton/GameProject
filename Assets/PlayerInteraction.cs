@@ -60,12 +60,6 @@ public class PlayerInteraction : MonoBehaviour
             TryInteract();
         }
 
-        // Optional debug reset
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ClearInventory();
-        }
-
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (paused)
@@ -93,7 +87,15 @@ public class PlayerInteraction : MonoBehaviour
         if (pickup != null)
         {
             pickup.TryPickup(this);
-            if (!timeTravel.Teleport()) { teleportFail = true; }
+            bool isFinale = pickup.isFinale();
+            if (!isFinale)
+            {
+                if (!timeTravel.Teleport()) { teleportFail = true; }    
+            } else
+            {
+                dialougeManager.finale();
+                menuManager.ShowFinishMenu();
+            }
             return;
         }
 

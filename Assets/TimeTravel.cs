@@ -70,9 +70,9 @@ public class TimeTravel : MonoBehaviour {
 
     }
 
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.F)) {
-            _ = Teleport();
-        }
-    }
+    //void Update() {
+    //    if (Input.GetKeyDown(KeyCode.F)) {
+    //        _ = Teleport();
+    //    }
+    //}
 }
