@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] public GameObject menu;
     [SerializeField] private MenuManager menuManager;
     [SerializeField] private bool paused;
+    [SerializeField] private bool teleportFail;
     [SerializeField] private TimeTravel timeTravel;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float distance = 1.5f;
@@ -46,6 +47,14 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
+        if (teleportFail)
+        {
+            if (timeTravel.Teleport())
+            {
+                teleportFail = false;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             TryInteract();
@@ -84,14 +93,7 @@ public class PlayerInteraction : MonoBehaviour
         if (pickup != null)
         {
             pickup.TryPickup(this);
-            while (true)
-            {
-                bool didTravel = timeTravel.Teleport();
-                if (didTravel)
-                {
-                    break;
-                }
-            }
+            if (!timeTravel.Teleport()) { teleportFail = true; }
             return;
         }
 
@@ -99,14 +101,7 @@ public class PlayerInteraction : MonoBehaviour
         if (travelI != null)
         {
             travelI.gameObject.SetActive(false);
-            while (true)
-            {
-                bool didTravel = timeTravel.Teleport();
-                if (didTravel)
-                {
-                    break;
-                }
-            }
+            if (!timeTravel.Teleport()) { teleportFail = true; }
             return;
         }
 
