@@ -6,6 +6,9 @@ using System.Collections.Generic;
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Look + Interact")]
+    [SerializeField] public GameObject menu;
+    private MenuManager menuManager;
+    [SerializeField] private bool paused;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float distance = 1.5f;
     [SerializeField] private LayerMask interactMask = ~0;
@@ -30,6 +33,11 @@ public class PlayerInteraction : MonoBehaviour
     // Keeps a stable display order (IDs in acquisition order)
     private readonly List<string> inventoryOrder = new List<string>();
 
+    void Start()
+    {
+        menuManager = menu.GetComponent<MenuManager>();
+    }
+
     void Reset()
     {
         playerCamera = Camera.main;
@@ -46,6 +54,20 @@ public class PlayerInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             ClearInventory();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused)
+            {
+                menuManager.HidePauseMenu();
+                paused = false;
+            } else
+            {
+                menuManager.ShowPauseMenu();
+                paused = true;
+            }
+            
         }
     }
 

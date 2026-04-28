@@ -47513,6 +47513,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec9d7a0a5dc3442986228b86b0df6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+  menu: {fileID: 66818235}
+  menuManager: {fileID: 0}
+  paused: 0
   playerCamera: {fileID: 335490363}
   distance: 4
   interactMask:
