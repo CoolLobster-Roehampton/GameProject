@@ -7,8 +7,9 @@ public class PlayerInteraction : MonoBehaviour
 {
     [Header("Look + Interact")]
     [SerializeField] public GameObject menu;
-    private MenuManager menuManager;
+    [SerializeField] private MenuManager menuManager;
     [SerializeField] private bool paused;
+    [SerializeField] private TimeTravel timeTravel;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private float distance = 1.5f;
     [SerializeField] private LayerMask interactMask = ~0;
@@ -83,6 +84,29 @@ public class PlayerInteraction : MonoBehaviour
         if (pickup != null)
         {
             pickup.TryPickup(this);
+            while (true)
+            {
+                bool didTravel = timeTravel.Teleport();
+                if (didTravel)
+                {
+                    break;
+                }
+            }
+            return;
+        }
+
+        TravelItem travelI = hit.collider.GetComponent<TravelItem>() ?? hit.collider.GetComponentInParent<TravelItem>();
+        if (travelI != null)
+        {
+            travelI.gameObject.SetActive(false);
+            while (true)
+            {
+                bool didTravel = timeTravel.Teleport();
+                if (didTravel)
+                {
+                    break;
+                }
+            }
             return;
         }
 
@@ -96,7 +120,7 @@ public class PlayerInteraction : MonoBehaviour
         PlayerDoor door = hit.collider.GetComponent<PlayerDoor>() ?? hit.collider.GetComponentInParent<PlayerDoor>();
         if (door != null)
         {
-            door.Toggle();
+            door.Toggle(this);
             return;
         }
     }

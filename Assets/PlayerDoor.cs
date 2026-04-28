@@ -10,11 +10,19 @@ public class PlayerDoor : MonoBehaviour
 
     [Header("State")]
     [SerializeField] private bool startsOpen = false;
+    [SerializeField] private bool isLocked = false;
+    [SerializeField] private string requiredItemId;
     public bool IsOpen { get; private set; }
 
     private Quaternion closedRot;
     private Quaternion openRot;
     private Coroutine moveRoutine;
+
+    void Start()
+    {
+        if (requiredItemId == null) { isLocked = false; }
+        else { isLocked = true; }
+    }
 
     void Awake()
     {
@@ -28,9 +36,18 @@ public class PlayerDoor : MonoBehaviour
     }
 
     // Called by PlayerInteraction when you press E looking at the door
-    public void Toggle()
+    public void Toggle(PlayerInteraction player)
     {
-        SetOpen(!IsOpen);
+        if (isLocked)
+        {
+            if (player == null) return;
+            if (!player.HasItem(requiredItemId)) return;
+            player.RemoveItem(requiredItemId);
+            isLocked = false;
+            SetOpen(!IsOpen);
+        } else {
+            SetOpen(!IsOpen);   
+        }
     }
 
     public void SetOpen(bool open)

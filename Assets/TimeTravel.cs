@@ -6,7 +6,7 @@ public class TimeTravel : MonoBehaviour {
     public LayerMask teleportBlockerMask;
     
     bool isOffset = false;
-    bool teleportAllowed = false;
+    public bool teleportAllowed = false;
 
     CharacterController capsule;
     float capsuleHeight, capsuleRadius;
@@ -54,20 +54,25 @@ public class TimeTravel : MonoBehaviour {
         return true;
     }
 
+    public bool Teleport()
+    {
+        Vector3 newPos = Player.transform.position + (isOffset ? -TeleportOffset : TeleportOffset);
+
+        if (CanTeleport(newPos) && teleportAllowed) {
+            capsule.enabled = false;
+            Player.transform.position = newPos;
+            capsule.enabled = true;
+
+            isOffset = !isOffset;
+            return true;
+        }
+        return false;
+
+    }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.F)) {
-            Vector3 newPos = Player.transform.position + (isOffset ? -TeleportOffset : TeleportOffset);
-
-            if (CanTeleport(newPos) && teleportAllowed) {
-                capsule.enabled = false;
-                Player.transform.position = newPos;
-                capsule.enabled = true;
-
-                isOffset = !isOffset;
-            }
-
-
+            _ = Teleport();
         }
     }
 }
