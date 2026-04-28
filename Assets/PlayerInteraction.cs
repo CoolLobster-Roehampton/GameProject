@@ -6,7 +6,6 @@ using System.Collections.Generic;
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Look + Interact")]
-    [SerializeField] public GameObject menu;
     [SerializeField] private MenuManager menuManager;
     [SerializeField] private bool paused;
     [SerializeField] private bool teleportFail;
@@ -34,11 +33,6 @@ public class PlayerInteraction : MonoBehaviour
 
     // Keeps a stable display order (IDs in acquisition order)
     private readonly List<string> inventoryOrder = new List<string>();
-
-    void Start()
-    {
-        menuManager = menu.GetComponent<MenuManager>();
-    }
 
     void Reset()
     {
@@ -93,7 +87,7 @@ public class PlayerInteraction : MonoBehaviour
                 if (!timeTravel.Teleport()) { teleportFail = true; }    
             } else
             {
-                dialougeManager.finale();
+                //menuManager.ShowFinaleDialouge();
                 menuManager.ShowFinishMenu();
             }
             return;
