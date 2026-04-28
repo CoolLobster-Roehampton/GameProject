@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Door : MonoBehaviour
+public class PlayerDoor : MonoBehaviour
 {
     [Header("Hinge / Rotation")]
     [SerializeField] private Transform hinge;          // the object that rotates (set to this.transform if null)
