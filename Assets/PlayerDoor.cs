@@ -11,7 +11,7 @@ public class PlayerDoor : MonoBehaviour
     [Header("State")]
     [SerializeField] private bool startsOpen = false;
     [SerializeField] private bool isLocked = false;
-    [SerializeField] private string requiredItemId;
+    [SerializeField] private string requiredItemId = null;
     public bool IsOpen { get; private set; }
 
     private Quaternion closedRot;
@@ -21,7 +21,7 @@ public class PlayerDoor : MonoBehaviour
     void Start()
     {
         if (requiredItemId == null) { isLocked = false; }
-        else { isLocked = true; }
+        //else { isLocked = true; }
     }
 
     void Awake()
@@ -40,12 +40,15 @@ public class PlayerDoor : MonoBehaviour
     {
         if (isLocked)
         {
+            Debug.Log("Unlocking");
             if (player == null) return;
             if (!player.HasItem(requiredItemId)) return;
             player.RemoveItem(requiredItemId);
             isLocked = false;
             SetOpen(!IsOpen);
+            Debug.Log("Unlocked");
         } else {
+            Debug.Log("Opening");
             SetOpen(!IsOpen);   
         }
     }
