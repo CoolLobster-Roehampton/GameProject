@@ -1,4 +1,7 @@
 using UnityEngine;
+using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MenuManager : MonoBehaviour
 {
@@ -6,10 +9,12 @@ public class MenuManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject finishMenu;
     public GameObject uiCanvas;
-
+    public GameObject dialougeBox;
+    public TextMeshProUGUI dialougeText;
     void Start()
     {
         ShowMainMenu();
+        dialougeBox.SetActive(false);
     }
 
     void SetCursorState(bool state)
@@ -64,4 +69,50 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void ShowDialouge(string text)
+    {
+        StopAllCoroutines();
+        StartCoroutine(AnimateDialouge(text));
+    }
+
+    IEnumerator AnimateDialouge(string text)
+    {
+        dialougeBox.SetActive(true);
+        dialougeText.text = text;
+
+        CanvasGroup cg = dialougeBox.GetComponent<CanvasGroup>();
+        if (cg == null) { cg = dialougeBox.AddComponent<CanvasGroup>(); }
+
+        float t = 0f;
+        float duration = 0.25f;
+
+        while (t < duration)
+        {
+            t += Time.unscaledDeltaTime;
+            float p = t / duration;
+
+            cg.alpha = p;
+            dialougeBox.transform.localScale = Vector3.Lerp(Vector3.one * 1.1f, Vector3.one, p);
+            yield return null;
+        }
+
+        cg.alpha = 1f;
+
+        yield return new WaitForSecondsRealtime(2.5f);
+
+        t = 0f;
+        while ( t < duration )
+        {
+            t += Time.unscaledDeltaTime;
+            float p = t / duration;
+
+            cg.alpha = 1f - p;
+
+            yield return null;
+        }
+
+        cg.alpha = 0f;
+        dialougeBox.SetActive(false);
+
+    }
 }
