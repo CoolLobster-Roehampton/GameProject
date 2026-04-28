@@ -5,6 +5,7 @@ public class MenuManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject pauseMenu;
     public GameObject finishMenu;
+    public GameObject uiCanvas;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class MenuManager : MonoBehaviour
 
     public void ShowMainMenu()
     {
+        uiCanvas.SetActive(false);
         mainMenu.SetActive(true);
         pauseMenu.SetActive(false);
         finishMenu.SetActive(false);
@@ -27,6 +29,7 @@ public class MenuManager : MonoBehaviour
 
     public void ShowPauseMenu()
     {
+        uiCanvas.SetActive(false);
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         SetCursorState(false);
@@ -34,6 +37,7 @@ public class MenuManager : MonoBehaviour
 
     public void HidePauseMenu()
     {
+        uiCanvas.SetActive(true);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         SetCursorState(true);
@@ -41,6 +45,7 @@ public class MenuManager : MonoBehaviour
 
     public void ShowFinishMenu()
     {
+        uiCanvas.SetActive(false);
         finishMenu.SetActive(true);
         Time.timeScale = 0f;
         SetCursorState(false);
@@ -48,6 +53,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        uiCanvas.SetActive(true);
         mainMenu.SetActive(false);
         Time.timeScale = 1f;
         SetCursorState(true);

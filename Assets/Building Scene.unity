@@ -266,6 +266,7 @@ MonoBehaviour:
   mainMenu: {fileID: 785169012}
   pauseMenu: {fileID: 1905186968}
   finishMenu: {fileID: 772569263}
+  uiCanvas: {fileID: 1446575095}
 --- !u!1 &86661330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100398, guid: 18cd780e6948a554a850b2d047ebf8fb, type: 3}
