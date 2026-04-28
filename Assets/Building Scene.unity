@@ -158,13 +158,14 @@ GameObject:
   - component: {fileID: 66818238}
   - component: {fileID: 66818237}
   - component: {fileID: 66818236}
+  - component: {fileID: 66818240}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &66818236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +251,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &66818240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66818235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae5033e43f01d4044a663f675e00d1f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuManager
+  mainMenu: {fileID: 785169012}
+  pauseMenu: {fileID: 1905186968}
+  finishMenu: {fileID: 772569263}
 --- !u!1 &86661330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100398, guid: 18cd780e6948a554a850b2d047ebf8fb, type: 3}
@@ -9446,7 +9462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &772569264
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9647,7 +9663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.69803923, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13050,7 +13066,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1722896398}
+  m_Mesh: {fileID: 1336469369}
 --- !u!33 &1203236481
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -25887,7 +25903,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 1722896398}
+  m_Mesh: {fileID: 530278449}
 --- !u!33 &1730655922
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -36049,7 +36065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1905186969
 RectTransform:
   m_ObjectHideFlags: 0
