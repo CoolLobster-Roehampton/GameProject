@@ -50,11 +50,12 @@ public class MenuManager : MonoBehaviour
 
     public void ShowFinishMenu()
     {
-        ShowDialouge("You've found the piece, remember the past.");
-        uiCanvas.SetActive(false);
-        finishMenu.SetActive(true);
         Time.timeScale = 0f;
         SetCursorState(false);
+        uiCanvas.SetActive(false);
+        ShowDialouge("You've found the piece, remember the past.");
+        finishMenu.SetActive(true);
+
     }
 
     public void StartGame()
