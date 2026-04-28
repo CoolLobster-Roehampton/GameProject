@@ -21,7 +21,6 @@ public class PlayerDoor : MonoBehaviour
     void Start()
     {
         if (requiredItemId == null) { isLocked = false; }
-        //else { isLocked = true; }
     }
 
     void Awake()
@@ -40,15 +39,12 @@ public class PlayerDoor : MonoBehaviour
     {
         if (isLocked)
         {
-            Debug.Log("Unlocking");
             if (player == null) return;
             if (!player.HasItem(requiredItemId)) return;
             player.RemoveItem(requiredItemId);
             isLocked = false;
             SetOpen(!IsOpen);
-            Debug.Log("Unlocked");
         } else {
-            Debug.Log("Opening");
             SetOpen(!IsOpen);   
         }
     }
