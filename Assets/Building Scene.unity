@@ -9005,7 +9005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDoor
   hinge: {fileID: 0}
-  openEuler: {x: 0, y: 90, z: 0}
+  openEuler: {x: 0, y: 0, z: 90}
   degreesPerSecond: 180
   startsOpen: 0
   isLocked: 1
@@ -24222,7 +24222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDoor
   hinge: {fileID: 0}
-  openEuler: {x: 0, y: 90, z: 0}
+  openEuler: {x: 0, y: 0, z: 90}
   degreesPerSecond: 180
   startsOpen: 0
   isLocked: 1
@@ -35842,8 +35842,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD - Movement\n    E     - Interact\n    F     - Time Travel\n  Tab  
-    - Pause"
+  m_text: "WASD - Movement\n    E     - Interact\n    F     - Time Travel (DEBUG
+    DONT USE)\n  Tab   - Pause"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -47786,6 +47786,7 @@ MonoBehaviour:
   menu: {fileID: 66818235}
   menuManager: {fileID: 66818240}
   paused: 0
+  teleportFail: 0
   timeTravel: {fileID: 2072529967}
   playerCamera: {fileID: 335490363}
   distance: 4
