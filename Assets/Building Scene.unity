@@ -9009,7 +9009,7 @@ MonoBehaviour:
   degreesPerSecond: 180
   startsOpen: 0
   isLocked: 1
-  requiredItemId: key_1
+  requiredItemId: key_2
 --- !u!4 &544776948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4922469374407738, guid: a42b76a8ae68dad4fb4fea3eda1ed3d9, type: 3}
@@ -22723,8 +22723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab489925ea634b3bbc870b4c1366dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyPickup
-  itemId: key_3
-  displayName: Key 3
+  itemId: key_2
+  displayName: Key 2
   disableOnPickup: 1
 --- !u!1001 &1205454006
 PrefabInstance:
@@ -24226,7 +24226,7 @@ MonoBehaviour:
   degreesPerSecond: 180
   startsOpen: 0
   isLocked: 1
-  requiredItemId: key_2
+  requiredItemId: key_1
 --- !u!1 &1387349808
 GameObject:
   m_ObjectHideFlags: 0
@@ -46593,8 +46593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab489925ea634b3bbc870b4c1366dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyPickup
-  itemId: key_2
-  displayName: Key 2
+  itemId: key_3
+  displayName: Key 3
   disableOnPickup: 1
 --- !u!1 &1945829962
 GameObject:
